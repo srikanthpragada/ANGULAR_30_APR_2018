@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+
+It takes {{ duration }} hours.
+<p></p>
+It will cost you {{ fee }} INR.
+
+<h3>Topics</h3>
+The following are important topics:
+
+<ul>
+    <li *ngFor="let t of topics">
+          {{ t }}
+    </li>
+</ul>
+
+New Topic : <input type="text" #topic />
+<button (click)= "addTopic(topic.value)">Add</button>
+<button (click)= "deleteTopic(topic.value)">Delete</button>
+{{message}}
