@@ -19,11 +19,17 @@ export class CourseComponent {
     }
 
     addTopic(topic :string) {
+        // Check whether topic is already present 
         this.topics.push(topic)
+    }
+
+    deleteTopicByIndex(index : number) {
+           this.topics.splice(index,1)
     }
 
     deleteTopic(topic :string) {
         // find out index of the topic 
+        
         this.message = ""
         for(var i = 0; i < this.topics.length ; i ++)
         {

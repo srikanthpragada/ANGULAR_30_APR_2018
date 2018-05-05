@@ -1,0 +1,25 @@
+<style>
+    .special { color : red}
+    .big { font-size:30pt}
+</style>
+
+<h1 [class.special] ="special"
+    [innerText]="message"
+    (mouseover)="process($event)"></h1>
+
+<h1 [ngClass] ='{ "special": special , "big" : true}'  [innerText]="message"></h1>    
+
+<h2 [style.color]="'blue'"> Srikanth Technologies</h2>
+
+<button (click)="change()">Change Text</button>
+
+<p></p>
+<input type="checkbox" />Check Box 
+<p></p>
+<input type="text" [attr.maxlength]="size" />
+<p></p>
+
+<div *ngIf="!special; then trueBlock; else falseBlock"></div>
+<ng-template #trueBlock><div>True Block</div></ng-template>
+<ng-template #falseBlock><div>False Block</div></ng-template>
+

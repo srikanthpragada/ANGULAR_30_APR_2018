@@ -8,12 +8,14 @@ It will cost you {{ fee }} INR.
 The following are important topics:
 
 <ul>
-    <li *ngFor="let t of topics">
-          {{ t }}
+    <li *ngFor="let t of topics; let idx = index">
+          {{ t }}  
+          <button (click)= "deleteTopicByIndex(idx)">Delete</button>
     </li>
 </ul>
 
 New Topic : <input type="text" #topic />
 <button (click)= "addTopic(topic.value)">Add</button>
 <button (click)= "deleteTopic(topic.value)">Delete</button>
+
 {{message}}

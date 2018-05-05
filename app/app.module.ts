@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BindingsComponent } from './bindings.component';
 import { CourseComponent } from './course.component';
 
 
