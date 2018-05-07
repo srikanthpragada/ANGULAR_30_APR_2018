@@ -1,0 +1,38 @@
+<h1>Persons</h1>
+
+Fullname <br/>
+<input type="text" #fullname />
+<p></p>
+Email  <br/>
+<input type="text" #email />
+<p></p>
+Mobile <br/>
+<input type="text" #mobile />
+<p></p>
+Age <br/>
+<input type="text" #age />
+<p></p>
+<button (click)="addPerson(fullname.value, email.value, mobile.value, age.value)">Add</button>
+
+<div *ngIf="persons.length > 0">
+ <table border="1" cellpadding="5pt">
+   <tr>
+       <th>Fullname</th>
+       <th>Email</th>
+       <th>Mobile</th>
+       <th>Age</th>
+       <th></th>
+   </tr>
+
+   <tr  *ngFor="let p of persons; let idx = index">
+       <td> {{ p.fullname }}</td>
+       <td> {{ p.email }}</td>
+       <td> {{ p.mobile }}</td>
+       <td> {{ p.age }}</td>
+       <td> <button (click)="deletePerson(idx)">Delete</button> </td>
+   </tr>
+
+ </table>
+
+
+</div>
