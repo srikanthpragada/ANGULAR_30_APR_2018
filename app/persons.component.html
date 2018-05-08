@@ -12,7 +12,10 @@ Mobile <br/>
 Age <br/>
 <input type="text" #age />
 <p></p>
-<button (click)="addPerson(fullname.value, email.value, mobile.value, age.value)">Add</button>
+Gender  <input type="radio" #male name="gender" checked>Male
+<input type="radio" #female name="gender"> Female
+
+<button (click)="addPerson(fullname.value, email.value, mobile.value, age.value, male.checked ? 'M' : 'F')">Add</button>
 
 <div *ngIf="persons.length > 0">
  <table border="1" cellpadding="5pt">

@@ -3,7 +3,8 @@ import { ConvertService} from './convert.service'
 
 @Component({
     selector: 'st-convert',
-    templateUrl: './convert.component.html',
+    templateUrl: './convert.component.html'
+    // providers : []
 })
 export class ConvertComponent {
     result : number = 0;
