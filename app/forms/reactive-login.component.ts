@@ -13,6 +13,11 @@ export class ReactiveLoginComponent {
     // FormControl validator 
     mustHaveStar(control : FormControl) 
     {
+       // if no data is present then valid 
+       if(control.value == "")
+          return null;
+
+       // data is present but no * is present then error    
        if (control.value.indexOf("*") >= 0)
          return null;  // valid so return null 
        else
@@ -31,12 +36,11 @@ export class ReactiveLoginComponent {
 
     ngOnInit() { 
        this.username = new FormControl("", 
-                    [Validators.required, 
-                     Validators.pattern("[a-zA-Z]+")]) ;
+                    [Validators.required 
+                      // Validators.pattern("[a-zA-Z]+")
+                    ]) ;
        this.password = new FormControl("",
-                    [Validators.required
-                    //  , this.mustHaveStar
-                     ]);
+                    [Validators.required, this.mustHaveStar]);
 
        this.loginForm = new FormGroup(
          { 
