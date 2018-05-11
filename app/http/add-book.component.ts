@@ -24,9 +24,10 @@ export class AddBookComponent {
           this.done = false;
           this.added = false; 
           this.http.post("http://test.srikanthpragada.com/api/books",this.book)
-            .subscribe(result => this.added = true,
-                       error => this.added = false,
-                       () => this.done = true
+            .subscribe(result =>
+                           { this.added = true; this.done = true;},
+                       error =>
+                           { this.added = false; this.done = true;}
             );
     }
 

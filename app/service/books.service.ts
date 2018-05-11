@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { WebBook } from '../http/WebBook';
 
 import { HttpClient } from '@angular/common/http';
-import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
  
 @Injectable()
@@ -22,4 +21,8 @@ export class BooksService {
           return this.http.delete(this.URL + "/" + id);
      }
 
+     addBook(book : WebBook) : Observable<any>  
+     {
+          return this.http.post(this.URL, book);
+     }
 }

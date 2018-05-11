@@ -5,7 +5,6 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/finally';
-import 'rxjs/add/operator/map';
 
 
 @Component(
@@ -25,8 +24,9 @@ export class HttpGitComponent {
 
     getDetails(username: string): void {
         this.user = null;
+        this.repos = null; 
+        this.isLoading = true;   
         this.message = null;
-        this.isLoading = true; 
 
         this.http.get<GitUser>(this.url + username)
             .finally( () => this.isLoading = false)
@@ -36,7 +36,10 @@ export class HttpGitComponent {
     }
 
     getRepos(username: string): void {
+        this.message = null;
         this.isLoading = true; 
+        this.repos = null; 
+        this.user = null; 
         this.http.get<GitRepo[]>(this.url + username + "/repos")
             .finally( () => this.isLoading = false)
             .subscribe(resp => this.repos =  resp,

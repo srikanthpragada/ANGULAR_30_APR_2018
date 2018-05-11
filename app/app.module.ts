@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { WebBooksComponent } from './http/webbooks.component';
+import { WebBooks2Component } from './http/webbooks2.component';
 import { AddBookComponent } from './http/add-book.component';
 import { FormsModule } from '@angular/forms';
+import { BooksService } from './service/books.service';
+import { HttpGitComponent } from './http/httpgit.component';
 
 
 @NgModule({
-  declarations: [ AddBookComponent, WebBooksComponent  ],
+  declarations: [ HttpGitComponent  ],
   imports:      [ BrowserModule, HttpClientModule, FormsModule  ],
-  providers:    [],
-  bootstrap:    [AddBookComponent, WebBooksComponent]
+  providers:    [ BooksService],
+  bootstrap:    [ HttpGitComponent]
 })
 export class AppModule { }
